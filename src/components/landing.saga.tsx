@@ -1,3 +1,3 @@
 export function* helloSaga(): IterableIterator<void> {
-    console.log('Hello Sagas!')
+  console.log('Hello Sagas!')
 }

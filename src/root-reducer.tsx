@@ -1,18 +1,6 @@
-interface RootState {
-    title: String,
-    name: String,
-}
+import landingReducer from './components/landing.reducer';
+import { combineReducers } from 'redux';
 
-interface Action {
-    type: String,
-    payload?: any,
-}
-
-const initState: RootState = {
-    title: '',
-    name: 'User'
-};
-
-export default (state = initState, action: Action): RootState => {
-    return state;
-}
+export default combineReducers(
+  landingReducer
+)

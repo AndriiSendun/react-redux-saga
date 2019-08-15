@@ -1,4 +1,6 @@
 import React from 'react';
+import store from './store';
+import {Provider} from 'react-redux';
 
 import Landing from './components/landing';
 import './App.css';
@@ -6,10 +8,9 @@ import './App.css';
 const App: React.FC = () => {
   return (
     <div className="App">
-      <Landing 
-        title="Hello User"
-        name="my Name"
-       />
+      <Provider store={store}>
+        <Landing />
+      </Provider>
     </div>
   );
 }

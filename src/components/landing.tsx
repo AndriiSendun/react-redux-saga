@@ -1,20 +1,25 @@
 import React, { Component, useState, useEffect } from 'react';
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects'
+import { connect }  from 'react-redux';
 
-const Landing: React.FunctionComponent <LandingProps> = (props) => {
+const Landing: React.FunctionComponent = (props) => {
     const [ stateTitle, setStateTitle] = useState();
 
     return (
         <>
-            <div>{props.title}</div>
-            <div>{props.name}</div>
+            <div>This is value</div>
+            <button
+
+            >
+              Increment
+            </button>
+            <button>
+              Decrement
+            </button>
         </>
     )
 }
 
-interface LandingProps {
-    title: String,
-    name: String,
-}
-
-export default Landing;
+export default connect(
+  null,
+  null
+)(Landing);
