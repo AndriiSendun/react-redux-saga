@@ -1,5 +1,5 @@
-const INCREMENT = 'INCREMENT';
-const DECREMENT = 'DECREMENT';
+const INCREMENT: String = 'INCREMENT';
+const DECREMENT: String = 'DECREMENT';
 
 export {
   INCREMENT,

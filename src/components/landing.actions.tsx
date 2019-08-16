@@ -1,13 +1,11 @@
 import { INCREMENT, DECREMENT } from './landing.acton-types';
-import { incremment } from './landing.actions';
+import { ActionCreator, Action } from 'redux'
 
-const increment = () => dispatch => {
-  dispatch({type: INCREMENT});
-}
+const increment: ActionCreator<Action> = () => ({type: INCREMENT});
 
-
+const decrement: ActionCreator<Action> = () => ({type: DECREMENT});
 
 export {
-  incremment,
-  dec
+  increment,
+  decrement
 }
