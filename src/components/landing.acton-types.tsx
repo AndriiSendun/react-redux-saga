@@ -1,7 +1,9 @@
-const INCREMENT: String = 'INCREMENT';
-const DECREMENT: String = 'DECREMENT';
+const INCREMENT: string = 'INCREMENT';
+const DECREMENT: string = 'DECREMENT';
+const FETCH_REQUESTED: string = 'FETCH_REQUESTED'
 
 export {
   INCREMENT,
   DECREMENT,
+  FETCH_REQUESTED,
 }

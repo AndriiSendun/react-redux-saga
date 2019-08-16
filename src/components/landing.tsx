@@ -2,7 +2,7 @@ import React, { Component, useState, useEffect } from 'react';
 import { connect }  from 'react-redux';
 import { Dispatch, Action } from 'redux'
 
-import { increment, decrement } from './landing.actions';
+import { increment, decrement, fetch } from './landing.actions';
 import store from '../store';
 
 // INTERFACES
@@ -12,6 +12,7 @@ interface LandingProps {
   counter: number,
   increment: () => void,
   decrement: () => void,
+  fetch: () => void,
 }
 
 interface OwnProps {
@@ -34,6 +35,12 @@ const Landing: React.FC<LandingProps> = (props) => {
             >
               Decrement
             </button>
+
+            <button
+              onClick={props.fetch}
+            >
+              Fetch
+            </button>
         </>
     )
 }
@@ -44,6 +51,7 @@ interface StateFromProps {
 interface DispatchFromProps {
   increment: () => void,
   decrement: () => void,
+  fetch: () => void,
 }
 
 const mapStateToProps = (state: any): StateFromProps => {
@@ -56,6 +64,7 @@ const mapStateToProps = (state: any): StateFromProps => {
 const mapDispatchToProps = (dispatch: Dispatch): DispatchFromProps => ({
   increment: () => dispatch(increment()),
   decrement: () => dispatch(decrement()),
+  fetch: () => dispatch(fetch()),
 })
 
 export default connect<StateFromProps, DispatchFromProps, OwnProps>(

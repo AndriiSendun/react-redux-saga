@@ -4,11 +4,13 @@ import { Action } from 'redux'
 interface State {
   counter: number,
   title: string | null,
+  lol: any
 }
 
 const initState: State = {
   counter: 0,
-  title: null
+  title: null,
+  lol: null
 }
 
 export default (state: State = initState, action: Action): State  => {
@@ -22,6 +24,11 @@ export default (state: State = initState, action: Action): State  => {
       return {
         ...state,
         counter: state.counter - 1
+      }
+    case 'FETCH_SUCCEEDED':
+      return {
+        ...state,
+        lol: action
       }
     default:
       return state
