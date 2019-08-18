@@ -3,10 +3,10 @@ import { connect }  from 'react-redux';
 import { Dispatch, Action } from 'redux'
 
 import { increment, decrement, fetch } from './landing.actions';
-import store from '../store';
+import store from '../../store';
 
 // INTERFACES
-import { AppState }  from '../models/app-state.models'
+import { AppState }  from '../../models/app-state.models'
 
 interface LandingProps {
   counter: number,
