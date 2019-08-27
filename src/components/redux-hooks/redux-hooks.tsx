@@ -1,18 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Dispatch } from 'redux';
 
 import { AppState } from '../../models/app-state.models';
+import { increment } from '../landing/landing.actions';
 
 
 const ReduxHooks: React.FC<any> = ():JSX.Element => {
   const selectCounter = (state: AppState): number => state.landingReducer.counter;
 
   const counter: number = useSelector<AppState, number>(selectCounter);
+  const dispatch = useDispatch<Dispatch>();
 
     return (
         <div>
-          UseSelector redux hook
-          count is {counter}
+          <span>
+            UseSelector redux hook
+            count is {counter}
+          </span>
+          <button onClick={() => dispatch(increment())}>Redux Hook Increment</button>
         </div>
     );
 }
