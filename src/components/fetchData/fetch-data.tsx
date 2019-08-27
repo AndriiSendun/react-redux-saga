@@ -8,9 +8,9 @@ interface User {
     email: string,
 }
 
-const FetchData: React.FC<any> = () => {
+const FetchData: React.FC<any> = ():JSX.Element => {
 
-    const [data, setData] = useCustomFetch();
+    const [data, setData] = useCustomFetch([]);
 
     return (
         <div>
