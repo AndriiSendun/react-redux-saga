@@ -9,17 +9,17 @@ interface User {
   email: string,
 }
 
-export const useCustomFetch = (initState: []): [[], Dispatch<SetStateAction<[]>>] => {
-    const [data, setData] = useState(initState);
+export const useCustomFetch = (initState: [] = []): [User[], Dispatch<SetStateAction<[]>>] => {
+    const [data, setData]: [User[],  Dispatch<SetStateAction<[]>>] = useState(initState);
+
+    const fetchData = async () => {
+      const result = await axios('https://jsonplaceholder.typicode.com/users');
+
+      setData(result.data);
+    };
 
     useEffect(() => {
-        const fetchData = async () => {
-          const result = await axios('https://jsonplaceholder.typicode.com/users');
-
-          setData(result.data);
-        };
-
-        fetchData();
+      fetchData();
     }, []);
 
     return [data, setData];

@@ -14,8 +14,8 @@ const App: React.FC = () => {
     <div className="App">
       <Provider store={store}>
         <Landing title='ReactApp' />
-        {/* <Hook />
-        <FetchData /> */}
+        <Hook />
+        <FetchData />
         <ReduxHooks />
       </Provider>
     </div>
