@@ -1,5 +1,4 @@
-import { call, put, takeEvery, all } from 'redux-saga/effects';
-import { Action } from 'redux';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
 const Api = {
   fetchUser: () => 'fetch'
@@ -22,9 +21,6 @@ const Api = {
 //   yield takeEvery('FETCH_REQUESTED', 'https://jsonplaceholder.typicode.com/users')
 // }
 
-export function* helloSaga() {
-  console.log('Hello Sagas!')
-}
 
 function* fetchData(action) {
   try {
@@ -39,10 +35,6 @@ function* watchFetchData() {
   yield takeEvery('FETCH_REQUESTED', fetchData)
 }
 
-
-export function* rootSaga() {
-  yield all([
-    helloSaga(),
-    watchFetchData()
-  ])
+export {
+  watchFetchData,
 }

@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useCustomFetch } from './options';
 
+import { connect } from 'react-redux';
+import { Dispatch } from 'redux';
+
+import { fetchAction } from './fetch-data.actions';
+
 interface User {
     id: number,
     name: string,
@@ -8,21 +13,32 @@ interface User {
     email: string,
 }
 
-const FetchData: React.FC<any> = () => {
+const FetchData: React.FC<any> = (props) => {
 
-    const [data, setData] = useCustomFetch();
+    // const [data, setData] = useCustomFetch();
+
+    useEffect(() => {
+        props.fetch();
+    });
 
     return (
         <div>
-            <ul>
+            {/* <ul>
                 {data.map((item: User) => (
                     <li key={item.id}>
                         <span>{item.name}</span>
                     </li>
                 ))}
-            </ul>
+            </ul> */}
         </div>
     )
 }
 
-export default FetchData;
+const mapDispatchToProps = (dispatch: Dispatch) => ({
+    fetch: () => dispatch(fetchAction())
+})
+
+export default connect(
+    null,
+    mapDispatchToProps,
+)(FetchData);
