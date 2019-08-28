@@ -13,7 +13,7 @@ interface User {
     email: string,
 }
 
-const FetchData: React.FC<any> = (props) => {
+const FetchData: React.FC<any> = (props):JSX.Element => {
 
     // const [data, setData] = useCustomFetch();
 
@@ -34,11 +34,4 @@ const FetchData: React.FC<any> = (props) => {
     )
 }
 
-const mapDispatchToProps = (dispatch: Dispatch) => ({
-    fetch: () => dispatch(fetchAction())
-})
-
-export default connect(
-    null,
-    mapDispatchToProps,
-)(FetchData);
+export default FetchData;
